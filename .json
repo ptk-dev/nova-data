@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "description": "Mike O'Dell's side hustle, a quilting kit company called Legit Kits, brings in six figures per year — and helps him stave off burnout from his full-time job.",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "xpath": [
+      "/html/head/title",
+      "/html/head/meta[@name=\"description\"]/@content"
+    ],
+    "cssSelector": [
+      ".group p"
+    ]
+  },
+  "mainEntityOfPage": "https://www.cnbc.com/2025/05/22/legit-kits-ceo-mike-odell-how-i-built-my-side-hustle-to-run-without-me.html",
+  "url": "https://www.cnbc.com/2025/05/22/legit-kits-ceo-mike-odell-how-i-built-my-side-hustle-to-run-without-me.html",
+  "headline": "50-year-old’s side hustle brings in $117,000 a month, he works 1 day a week on it: I can 'set my own schedule'",
+  "dateCreated": "2025-05-22T18:57:23+0000",
+  "datePublished": "2025-05-22T18:57:23+0000",
+  "dateModified": "2025-05-23T17:25:36+0000",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Megan Sauer",
+      "url": "https://www.cnbc.com/megan-sauer/"
+    },
+    {
+      "@type": "Person",
+      "name": "Ryan Johnston",
+      "url": "https://www.cnbc.com/ryan-johnston/"
+    }
+  ],
+  "publisher": {
+    "@type": "NewsMediaOrganization",
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/",
+    "foundingDate": "1989-04-17",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sc.cnbcfm.com/applications/cnbc.com/staticcontent/img/cnbc-hdr-logo2.png",
+      "width": 378,
+      "height": 98
+    },
+    "sameAs": [
+      "https://www.facebook.com/CNBCMakeIt",
+      "https://www.twitter.com/CNBCMakeit",
+      "https://www.linkedin.com/showcase/cnbc-make-it"
+    ]
+  },
+  "articleSection": "Make It",
+  "keywords": [
+    "makeit",
+    "Articles",
+    "Tariff",
+    "Side Hustle",
+    "Make It",
+    "Make It - Success",
+    "Make It - Side Hustles",
+    "source:tagname:CNBC US Source"
+  ],
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://image.cnbcfm.com/api/v1/image/108149403-1747926408016-odell_part_2.jpg?v=1747926627",
+    "width": 3024,
+    "height": 2268
+  },
+  "thumbnailUrl": "https://image.cnbcfm.com/api/v1/image/108149403-1747926408016-odell_part_2.jpg?v=1747926627&w=720&h=405",
+  "video": {
+    "@type": "VideoObject",
+    "contentUrl": "https://pdl-iphone-cnbc-com.akamaized.net/VCPS/Y2025/M05D01/7000374580/1746113764721-250304-mi-12-fe-sisson-primalkitchen-dirty_SRT_L.mp4",
+    "description": "Using profits from his existing supplements company, Mark Sisson, along with Morgan Zanotti, founded Primal Kitchen in 2015 with the goal of creating better-for-you condiments and sauces — free from artificial sweeteners and canola oil. The company's flagship product, a $10 avocado oil-based mayonnaise, sold out in just one week. A few years later, Mark and Morgan sold Primal Kitchen to Kraft Heinz for $200 million.",
+    "duration": "PT9M30S",
+    "name": "Primal Kitchen launched a $10 mayo and then sold to Kraft Heinz for $200 million 3 years later",
+    "thumbnailUrl": "https://image.cnbcfm.com/api/v1/image/108138993-250430-mg-31-fe-primal-kitchen-thumbnail-clean.jpg?v=1746129670",
+    "uploadDate": "2025-04-29T19:03:53+0000"
+  }
+}
