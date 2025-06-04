@@ -1,1 +1,9 @@
 node_modules
+pd_data
+pb_migrations
+.vscode
+*.exe
+*.lock
+*.db
+*.zip.*
+*.zip

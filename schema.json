@@ -1,0 +1,2484 @@
+{
+    "url": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/",
+    "isRendered": true,
+    "tripleGroups": [
+        {
+            "ownerSet": {},
+            "nodes": [
+                {
+                    "types": [
+                        {
+                            "pred": "itemtype",
+                            "value": "NewsArticle",
+                            "errors": [],
+                            "begin": 2620,
+                            "end": 2633
+                        }
+                    ],
+                    "typeGroup": "NewsArticle",
+                    "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#article",
+                        "errors": [],
+                        "begin": 2640,
+                        "end": 2728
+                    },
+                    "errors": [],
+                    "properties": [
+                        {
+                            "pred": "headline",
+                            "value": "GitHub nabs JavaScript packaging vendor npm",
+                            "errors": [],
+                            "begin": 2939,
+                            "end": 2984
+                        },
+                        {
+                            "pred": "datePublished",
+                            "value": "2020-03-16T17:41:42+00:00",
+                            "errors": [],
+                            "begin": 3001,
+                            "end": 3028
+                        },
+                        {
+                            "pred": "dateModified",
+                            "value": "2020-03-16T18:07:50+00:00",
+                            "errors": [],
+                            "begin": 3044,
+                            "end": 3071
+                        },
+                        {
+                            "pred": "wordCount",
+                            "value": "417",
+                            "errors": [],
+                            "begin": 3192,
+                            "end": 3195
+                        },
+                        {
+                            "pred": "commentCount",
+                            "value": "0",
+                            "errors": [],
+                            "begin": 3211,
+                            "end": 3212
+                        },
+                        {
+                            "pred": "thumbnailUrl",
+                            "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                            "errors": [],
+                            "begin": 3397,
+                            "end": 3474
+                        },
+                        {
+                            "pred": "keywords",
+                            "value": "Cloud Computing",
+                            "errors": [],
+                            "begin": 3487,
+                            "end": 3504
+                        },
+                        {
+                            "pred": "keywords",
+                            "value": "Microsoft",
+                            "errors": [],
+                            "begin": 3505,
+                            "end": 3516
+                        },
+                        {
+                            "pred": "keywords",
+                            "value": "open source",
+                            "errors": [],
+                            "begin": 3517,
+                            "end": 3530
+                        },
+                        {
+                            "pred": "keywords",
+                            "value": "developers",
+                            "errors": [],
+                            "begin": 3531,
+                            "end": 3543
+                        },
+                        {
+                            "pred": "keywords",
+                            "value": "GitHub",
+                            "errors": [],
+                            "begin": 3544,
+                            "end": 3552
+                        },
+                        {
+                            "pred": "keywords",
+                            "value": "Javascript",
+                            "errors": [],
+                            "begin": 3553,
+                            "end": 3565
+                        },
+                        {
+                            "pred": "keywords",
+                            "value": "npm",
+                            "errors": [],
+                            "begin": 3566,
+                            "end": 3571
+                        },
+                        {
+                            "pred": "articleSection",
+                            "value": "Startups",
+                            "errors": [],
+                            "begin": 3591,
+                            "end": 3601
+                        },
+                        {
+                            "pred": "inLanguage",
+                            "value": "en-US",
+                            "errors": [],
+                            "begin": 3616,
+                            "end": 3623
+                        },
+                        {
+                            "pred": "copyrightYear",
+                            "value": "2020",
+                            "errors": [],
+                            "begin": 3724,
+                            "end": 3730
+                        }
+                    ],
+                    "nodeProperties": [
+                        {
+                            "pred": "isPartOf",
+                            "target": {
+                                "types": [
+                                    {
+                                        "pred": "itemtype",
+                                        "value": "WebPage",
+                                        "errors": [],
+                                        "begin": 3806,
+                                        "end": 3815
+                                    }
+                                ],
+                                "typeGroup": "WebPage",
+                                "idProperty": {
+                                    "pred": "urn:spore:url",
+                                    "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/",
+                                    "errors": [],
+                                    "begin": 3822,
+                                    "end": 3902
+                                },
+                                "errors": [],
+                                "properties": [
+                                    {
+                                        "pred": "url",
+                                        "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/",
+                                        "errors": [],
+                                        "begin": 3909,
+                                        "end": 3989
+                                    },
+                                    {
+                                        "pred": "name",
+                                        "value": "GitHub nabs JavaScript packaging vendor npm | TechCrunch",
+                                        "errors": [],
+                                        "begin": 3997,
+                                        "end": 4055
+                                    },
+                                    {
+                                        "pred": "thumbnailUrl",
+                                        "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                        "errors": [],
+                                        "begin": 4357,
+                                        "end": 4434
+                                    },
+                                    {
+                                        "pred": "datePublished",
+                                        "value": "2020-03-16T17:41:42+00:00",
+                                        "errors": [],
+                                        "begin": 4451,
+                                        "end": 4478
+                                    },
+                                    {
+                                        "pred": "dateModified",
+                                        "value": "2020-03-16T18:07:50+00:00",
+                                        "errors": [],
+                                        "begin": 4494,
+                                        "end": 4521
+                                    },
+                                    {
+                                        "pred": "description",
+                                        "value": "GitHub, the developer repository owned by Microsoft, made a little deal of its own this morning when it bought JavaScript packaging vendor npm for an",
+                                        "errors": [],
+                                        "begin": 4536,
+                                        "end": 4687
+                                    },
+                                    {
+                                        "pred": "inLanguage",
+                                        "value": "en-US",
+                                        "errors": [],
+                                        "begin": 4814,
+                                        "end": 4821
+                                    }
+                                ],
+                                "nodeProperties": [
+                                    {
+                                        "pred": "isPartOf",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "WebSite",
+                                                    "errors": [],
+                                                    "begin": 6041,
+                                                    "end": 6050
+                                                }
+                                            ],
+                                            "typeGroup": "WebSite",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/#website",
+                                                "errors": [],
+                                                "begin": 6057,
+                                                "end": 6090
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/",
+                                                    "errors": [],
+                                                    "begin": 6097,
+                                                    "end": 6122
+                                                },
+                                                {
+                                                    "pred": "name",
+                                                    "value": "TechCrunch",
+                                                    "errors": [],
+                                                    "begin": 6130,
+                                                    "end": 6142
+                                                },
+                                                {
+                                                    "pred": "description",
+                                                    "value": "Startup and Technology News",
+                                                    "errors": [],
+                                                    "begin": 6157,
+                                                    "end": 6186
+                                                },
+                                                {
+                                                    "pred": "alternateName",
+                                                    "value": "TC",
+                                                    "errors": [],
+                                                    "begin": 6262,
+                                                    "end": 6266
+                                                },
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 6527,
+                                                    "end": 6534
+                                                }
+                                            ],
+                                            "nodeProperties": [
+                                                {
+                                                    "pred": "publisher",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "Organization",
+                                                                "errors": [],
+                                                                "begin": 6545,
+                                                                "end": 6559
+                                                            }
+                                                        ],
+                                                        "typeGroup": "Organization",
+                                                        "idProperty": {
+                                                            "pred": "urn:spore:url",
+                                                            "value": "https://techcrunch.com/#organization",
+                                                            "errors": [],
+                                                            "begin": 6566,
+                                                            "end": 6604
+                                                        },
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "name",
+                                                                "value": "TechCrunch",
+                                                                "errors": [],
+                                                                "begin": 6612,
+                                                                "end": 6624
+                                                            },
+                                                            {
+                                                                "pred": "alternateName",
+                                                                "value": "TC",
+                                                                "errors": [],
+                                                                "begin": 6641,
+                                                                "end": 6645
+                                                            },
+                                                            {
+                                                                "pred": "url",
+                                                                "value": "https://techcrunch.com/",
+                                                                "errors": [],
+                                                                "begin": 6652,
+                                                                "end": 6677
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://www.facebook.com/techcrunch",
+                                                                "errors": [],
+                                                                "begin": 7129,
+                                                                "end": 7166
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://x.com/TechCrunch",
+                                                                "errors": [],
+                                                                "begin": 7167,
+                                                                "end": 7193
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://mstdn.social/@TechCrunch",
+                                                                "errors": [],
+                                                                "begin": 7194,
+                                                                "end": 7228
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://bsky.app/profile/techcrunch.com",
+                                                                "errors": [],
+                                                                "begin": 7229,
+                                                                "end": 7270
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://www.threads.net/@techcrunch",
+                                                                "errors": [],
+                                                                "begin": 7271,
+                                                                "end": 7308
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [
+                                                            {
+                                                                "pred": "logo",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "ImageObject",
+                                                                            "errors": [],
+                                                                            "begin": 6694,
+                                                                            "end": 6707
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "ImageObject",
+                                                                    "idProperty": {
+                                                                        "pred": "urn:spore:url",
+                                                                        "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                                        "errors": [],
+                                                                        "begin": 7072,
+                                                                        "end": 7117
+                                                                    },
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "inLanguage",
+                                                                            "value": "en-US",
+                                                                            "errors": [],
+                                                                            "begin": 6721,
+                                                                            "end": 6728
+                                                                        },
+                                                                        {
+                                                                            "pred": "url",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6787,
+                                                                            "end": 6889
+                                                                        },
+                                                                        {
+                                                                            "pred": "contentUrl",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6903,
+                                                                            "end": 7005
+                                                                        },
+                                                                        {
+                                                                            "pred": "width",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7014,
+                                                                            "end": 7018
+                                                                        },
+                                                                        {
+                                                                            "pred": "height",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7028,
+                                                                            "end": 7032
+                                                                        },
+                                                                        {
+                                                                            "pred": "caption",
+                                                                            "value": "TechCrunch",
+                                                                            "errors": [],
+                                                                            "begin": 7043,
+                                                                            "end": 7055
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 6685,
+                                                                "end": 7056
+                                                            },
+                                                            {
+                                                                "pred": "image",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "ImageObject",
+                                                                            "errors": [],
+                                                                            "begin": 6694,
+                                                                            "end": 6707
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "ImageObject",
+                                                                    "idProperty": {
+                                                                        "pred": "urn:spore:url",
+                                                                        "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                                        "errors": [],
+                                                                        "begin": 7072,
+                                                                        "end": 7117
+                                                                    },
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "inLanguage",
+                                                                            "value": "en-US",
+                                                                            "errors": [],
+                                                                            "begin": 6721,
+                                                                            "end": 6728
+                                                                        },
+                                                                        {
+                                                                            "pred": "url",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6787,
+                                                                            "end": 6889
+                                                                        },
+                                                                        {
+                                                                            "pred": "contentUrl",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6903,
+                                                                            "end": 7005
+                                                                        },
+                                                                        {
+                                                                            "pred": "width",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7014,
+                                                                            "end": 7018
+                                                                        },
+                                                                        {
+                                                                            "pred": "height",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7028,
+                                                                            "end": 7032
+                                                                        },
+                                                                        {
+                                                                            "pred": "caption",
+                                                                            "value": "TechCrunch",
+                                                                            "errors": [],
+                                                                            "begin": 7043,
+                                                                            "end": 7055
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 7065,
+                                                                "end": 7118
+                                                            }
+                                                        ],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 6199,
+                                                    "end": 6245
+                                                },
+                                                {
+                                                    "pred": "potentialAction",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "SearchAction",
+                                                                "errors": [],
+                                                                "begin": 6295,
+                                                                "end": 6309
+                                                            }
+                                                        ],
+                                                        "typeGroup": "SearchAction",
+                                                        "errors": [],
+                                                        "properties": [],
+                                                        "nodeProperties": [
+                                                            {
+                                                                "pred": "target",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "EntryPoint",
+                                                                            "errors": [],
+                                                                            "begin": 6328,
+                                                                            "end": 6340
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "EntryPoint",
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "urlTemplate",
+                                                                            "value": "https://techcrunch.com/?s\u003d{search_term_string}",
+                                                                            "errors": [],
+                                                                            "begin": 6355,
+                                                                            "end": 6403
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 6319,
+                                                                "end": 6404
+                                                            },
+                                                            {
+                                                                "pred": "query-input",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "PropertyValueSpecification",
+                                                                            "errors": [],
+                                                                            "begin": 6428,
+                                                                            "end": 6456
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "PropertyValueSpecification",
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "valueRequired",
+                                                                            "value": "http://schema.org/True",
+                                                                            "errors": [],
+                                                                            "begin": 6473,
+                                                                            "end": 6477
+                                                                        },
+                                                                        {
+                                                                            "pred": "valueName",
+                                                                            "value": "search_term_string",
+                                                                            "errors": [],
+                                                                            "begin": 6490,
+                                                                            "end": 6510
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 6419,
+                                                                "end": 6511
+                                                            }
+                                                        ],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 6286,
+                                                    "end": 6512
+                                                }
+                                            ],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4067,
+                                        "end": 4108
+                                    },
+                                    {
+                                        "pred": "primaryImageOfPage",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 4967,
+                                                    "end": 4980
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#primaryimage",
+                                                "errors": [],
+                                                "begin": 5008,
+                                                "end": 5101
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 4994,
+                                                    "end": 5001
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5108,
+                                                    "end": 5185
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5199,
+                                                    "end": 5276
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "3000",
+                                                    "errors": [],
+                                                    "begin": 5285,
+                                                    "end": 5289
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "2003",
+                                                    "errors": [],
+                                                    "begin": 5299,
+                                                    "end": 5303
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "Signage is displayed at the entrance to the Github Inc. offices in San Francisco, California, U.S., on Monday, June 4, 2018. Microsoft Corp. is buying GitHub for $7.5 billion in stock, bringing in house a community of 28 million programmers who publish code openly and extending a shift away from a strategy of shrouding its software in secrecy. Photographer: Michael Short/Bloomberg via Getty Images",
+                                                    "errors": [],
+                                                    "begin": 5314,
+                                                    "end": 5717
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4130,
+                                        "end": 4231
+                                    },
+                                    {
+                                        "pred": "image",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 4967,
+                                                    "end": 4980
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#primaryimage",
+                                                "errors": [],
+                                                "begin": 5008,
+                                                "end": 5101
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 4994,
+                                                    "end": 5001
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5108,
+                                                    "end": 5185
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5199,
+                                                    "end": 5276
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "3000",
+                                                    "errors": [],
+                                                    "begin": 5285,
+                                                    "end": 5289
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "2003",
+                                                    "errors": [],
+                                                    "begin": 5299,
+                                                    "end": 5303
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "Signage is displayed at the entrance to the Github Inc. offices in San Francisco, California, U.S., on Monday, June 4, 2018. Microsoft Corp. is buying GitHub for $7.5 billion in stock, bringing in house a community of 28 million programmers who publish code openly and extending a shift away from a strategy of shrouding its software in secrecy. Photographer: Michael Short/Bloomberg via Getty Images",
+                                                    "errors": [],
+                                                    "begin": 5314,
+                                                    "end": 5717
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4240,
+                                        "end": 4341
+                                    },
+                                    {
+                                        "pred": "breadcrumb",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "BreadcrumbList",
+                                                    "errors": [],
+                                                    "begin": 5728,
+                                                    "end": 5744
+                                                }
+                                            ],
+                                            "typeGroup": "BreadcrumbList",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#breadcrumb",
+                                                "errors": [],
+                                                "begin": 5751,
+                                                "end": 5842
+                                            },
+                                            "errors": [],
+                                            "properties": [],
+                                            "nodeProperties": [
+                                                {
+                                                    "pred": "itemListElement",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "ListItem",
+                                                                "errors": [],
+                                                                "begin": 5871,
+                                                                "end": 5881
+                                                            }
+                                                        ],
+                                                        "typeGroup": "ListItem",
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "position",
+                                                                "value": "1",
+                                                                "errors": [],
+                                                                "begin": 5893,
+                                                                "end": 5894
+                                                            },
+                                                            {
+                                                                "pred": "name",
+                                                                "value": "Home",
+                                                                "errors": [],
+                                                                "begin": 5902,
+                                                                "end": 5908
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [
+                                                            {
+                                                                "pred": "item",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "Thing",
+                                                                            "errors": [],
+                                                                            "begin": 5916,
+                                                                            "end": 5941
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "Thing",
+                                                                    "idProperty": {
+                                                                        "pred": "urn:spore:url",
+                                                                        "value": "https://techcrunch.com/",
+                                                                        "errors": [],
+                                                                        "begin": 5916,
+                                                                        "end": 5941
+                                                                    },
+                                                                    "errors": [],
+                                                                    "properties": [],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 5916,
+                                                                "end": 5941
+                                                            }
+                                                        ],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 5862,
+                                                    "end": 5942
+                                                },
+                                                {
+                                                    "pred": "itemListElement",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "ListItem",
+                                                                "errors": [],
+                                                                "begin": 5952,
+                                                                "end": 5962
+                                                            }
+                                                        ],
+                                                        "typeGroup": "ListItem",
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "position",
+                                                                "value": "2",
+                                                                "errors": [],
+                                                                "begin": 5974,
+                                                                "end": 5975
+                                                            },
+                                                            {
+                                                                "pred": "name",
+                                                                "value": "GitHub nabs JavaScript packaging vendor npm",
+                                                                "errors": [],
+                                                                "begin": 5983,
+                                                                "end": 6028
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 5943,
+                                                    "end": 6029
+                                                }
+                                            ],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4701,
+                                        "end": 4800
+                                    },
+                                    {
+                                        "pred": "potentialAction",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ReadAction",
+                                                    "errors": [],
+                                                    "begin": 4850,
+                                                    "end": 4862
+                                                }
+                                            ],
+                                            "typeGroup": "ReadAction",
+                                            "errors": [],
+                                            "properties": [],
+                                            "nodeProperties": [
+                                                {
+                                                    "pred": "target",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "EntryPoint",
+                                                                "errors": [],
+                                                                "begin": 4873,
+                                                                "end": 4953
+                                                            }
+                                                        ],
+                                                        "typeGroup": "EntryPoint",
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "urlTemplate",
+                                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/",
+                                                                "errors": [],
+                                                                "begin": 4873,
+                                                                "end": 4953
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 4873,
+                                                    "end": 4953
+                                                }
+                                            ],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4841,
+                                        "end": 4955
+                                    }
+                                ],
+                                "numErrors": 0,
+                                "numWarnings": 0
+                            },
+                            "errors": [],
+                            "begin": 2740,
+                            "end": 2828
+                        },
+                        {
+                            "pred": "author",
+                            "target": {
+                                "types": [
+                                    {
+                                        "pred": "itemtype",
+                                        "value": "Person",
+                                        "errors": [],
+                                        "begin": 7320,
+                                        "end": 7328
+                                    }
+                                ],
+                                "typeGroup": "Person",
+                                "idProperty": {
+                                    "pred": "urn:spore:url",
+                                    "value": "https://techcrunch.com/#/schema/person/image/d9d15cc3ac57e7a5cfdac4e6e26522c9",
+                                    "errors": [],
+                                    "begin": 7335,
+                                    "end": 7414
+                                },
+                                "errors": [],
+                                "properties": [
+                                    {
+                                        "pred": "name",
+                                        "value": "Ron Miller",
+                                        "errors": [],
+                                        "begin": 7422,
+                                        "end": 7434
+                                    },
+                                    {
+                                        "pred": "description",
+                                        "value": "Ron Miller was an enterprise reporter at TechCrunch. Previously, he was a long-time Contributing Editor at EContent Magazine. Past regular gigs included CITEworld, DaniWeb, TechTarget, Internet Evolution and FierceContentManagement. Disclosures: Ron was formerly corporate blogger for Intronis where he wrote once weekly on IT issues. He has contributed to various corporate blogs in the past including Ness, Novell and the IBM Mid-market Blogger Program.",
+                                        "errors": [],
+                                        "begin": 7812,
+                                        "end": 8269
+                                    },
+                                    {
+                                        "pred": "url",
+                                        "value": "https://techcrunch.com/author/ronjourn/",
+                                        "errors": [],
+                                        "begin": 8276,
+                                        "end": 8317
+                                    }
+                                ],
+                                "nodeProperties": [
+                                    {
+                                        "pred": "image",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 7452,
+                                                    "end": 7465
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/#/schema/person/image/be360d134309c92df34e1c41a68ce306",
+                                                "errors": [],
+                                                "begin": 7493,
+                                                "end": 7572
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 7479,
+                                                    "end": 7486
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://secure.gravatar.com/avatar/0b82cfe9f0e15c08c5816481c9f383d9?s\u003d96\u0026d\u003didenticon\u0026r\u003dg",
+                                                    "errors": [],
+                                                    "begin": 7579,
+                                                    "end": 7669
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://secure.gravatar.com/avatar/0b82cfe9f0e15c08c5816481c9f383d9?s\u003d96\u0026d\u003didenticon\u0026r\u003dg",
+                                                    "errors": [],
+                                                    "begin": 7683,
+                                                    "end": 7773
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "Ron Miller",
+                                                    "errors": [],
+                                                    "begin": 7784,
+                                                    "end": 7796
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 7443,
+                                        "end": 7797
+                                    }
+                                ],
+                                "numErrors": 0,
+                                "numWarnings": 0
+                            },
+                            "errors": [],
+                            "begin": 2839,
+                            "end": 2926
+                        },
+                        {
+                            "pred": "mainEntityOfPage",
+                            "target": {
+                                "types": [
+                                    {
+                                        "pred": "itemtype",
+                                        "value": "WebPage",
+                                        "errors": [],
+                                        "begin": 3806,
+                                        "end": 3815
+                                    }
+                                ],
+                                "typeGroup": "WebPage",
+                                "idProperty": {
+                                    "pred": "urn:spore:url",
+                                    "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/",
+                                    "errors": [],
+                                    "begin": 3822,
+                                    "end": 3902
+                                },
+                                "errors": [],
+                                "properties": [
+                                    {
+                                        "pred": "url",
+                                        "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/",
+                                        "errors": [],
+                                        "begin": 3909,
+                                        "end": 3989
+                                    },
+                                    {
+                                        "pred": "name",
+                                        "value": "GitHub nabs JavaScript packaging vendor npm | TechCrunch",
+                                        "errors": [],
+                                        "begin": 3997,
+                                        "end": 4055
+                                    },
+                                    {
+                                        "pred": "thumbnailUrl",
+                                        "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                        "errors": [],
+                                        "begin": 4357,
+                                        "end": 4434
+                                    },
+                                    {
+                                        "pred": "datePublished",
+                                        "value": "2020-03-16T17:41:42+00:00",
+                                        "errors": [],
+                                        "begin": 4451,
+                                        "end": 4478
+                                    },
+                                    {
+                                        "pred": "dateModified",
+                                        "value": "2020-03-16T18:07:50+00:00",
+                                        "errors": [],
+                                        "begin": 4494,
+                                        "end": 4521
+                                    },
+                                    {
+                                        "pred": "description",
+                                        "value": "GitHub, the developer repository owned by Microsoft, made a little deal of its own this morning when it bought JavaScript packaging vendor npm for an",
+                                        "errors": [],
+                                        "begin": 4536,
+                                        "end": 4687
+                                    },
+                                    {
+                                        "pred": "inLanguage",
+                                        "value": "en-US",
+                                        "errors": [],
+                                        "begin": 4814,
+                                        "end": 4821
+                                    }
+                                ],
+                                "nodeProperties": [
+                                    {
+                                        "pred": "isPartOf",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "WebSite",
+                                                    "errors": [],
+                                                    "begin": 6041,
+                                                    "end": 6050
+                                                }
+                                            ],
+                                            "typeGroup": "WebSite",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/#website",
+                                                "errors": [],
+                                                "begin": 6057,
+                                                "end": 6090
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/",
+                                                    "errors": [],
+                                                    "begin": 6097,
+                                                    "end": 6122
+                                                },
+                                                {
+                                                    "pred": "name",
+                                                    "value": "TechCrunch",
+                                                    "errors": [],
+                                                    "begin": 6130,
+                                                    "end": 6142
+                                                },
+                                                {
+                                                    "pred": "description",
+                                                    "value": "Startup and Technology News",
+                                                    "errors": [],
+                                                    "begin": 6157,
+                                                    "end": 6186
+                                                },
+                                                {
+                                                    "pred": "alternateName",
+                                                    "value": "TC",
+                                                    "errors": [],
+                                                    "begin": 6262,
+                                                    "end": 6266
+                                                },
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 6527,
+                                                    "end": 6534
+                                                }
+                                            ],
+                                            "nodeProperties": [
+                                                {
+                                                    "pred": "publisher",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "Organization",
+                                                                "errors": [],
+                                                                "begin": 6545,
+                                                                "end": 6559
+                                                            }
+                                                        ],
+                                                        "typeGroup": "Organization",
+                                                        "idProperty": {
+                                                            "pred": "urn:spore:url",
+                                                            "value": "https://techcrunch.com/#organization",
+                                                            "errors": [],
+                                                            "begin": 6566,
+                                                            "end": 6604
+                                                        },
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "name",
+                                                                "value": "TechCrunch",
+                                                                "errors": [],
+                                                                "begin": 6612,
+                                                                "end": 6624
+                                                            },
+                                                            {
+                                                                "pred": "alternateName",
+                                                                "value": "TC",
+                                                                "errors": [],
+                                                                "begin": 6641,
+                                                                "end": 6645
+                                                            },
+                                                            {
+                                                                "pred": "url",
+                                                                "value": "https://techcrunch.com/",
+                                                                "errors": [],
+                                                                "begin": 6652,
+                                                                "end": 6677
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://www.facebook.com/techcrunch",
+                                                                "errors": [],
+                                                                "begin": 7129,
+                                                                "end": 7166
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://x.com/TechCrunch",
+                                                                "errors": [],
+                                                                "begin": 7167,
+                                                                "end": 7193
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://mstdn.social/@TechCrunch",
+                                                                "errors": [],
+                                                                "begin": 7194,
+                                                                "end": 7228
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://bsky.app/profile/techcrunch.com",
+                                                                "errors": [],
+                                                                "begin": 7229,
+                                                                "end": 7270
+                                                            },
+                                                            {
+                                                                "pred": "sameAs",
+                                                                "value": "https://www.threads.net/@techcrunch",
+                                                                "errors": [],
+                                                                "begin": 7271,
+                                                                "end": 7308
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [
+                                                            {
+                                                                "pred": "logo",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "ImageObject",
+                                                                            "errors": [],
+                                                                            "begin": 6694,
+                                                                            "end": 6707
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "ImageObject",
+                                                                    "idProperty": {
+                                                                        "pred": "urn:spore:url",
+                                                                        "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                                        "errors": [],
+                                                                        "begin": 7072,
+                                                                        "end": 7117
+                                                                    },
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "inLanguage",
+                                                                            "value": "en-US",
+                                                                            "errors": [],
+                                                                            "begin": 6721,
+                                                                            "end": 6728
+                                                                        },
+                                                                        {
+                                                                            "pred": "url",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6787,
+                                                                            "end": 6889
+                                                                        },
+                                                                        {
+                                                                            "pred": "contentUrl",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6903,
+                                                                            "end": 7005
+                                                                        },
+                                                                        {
+                                                                            "pred": "width",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7014,
+                                                                            "end": 7018
+                                                                        },
+                                                                        {
+                                                                            "pred": "height",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7028,
+                                                                            "end": 7032
+                                                                        },
+                                                                        {
+                                                                            "pred": "caption",
+                                                                            "value": "TechCrunch",
+                                                                            "errors": [],
+                                                                            "begin": 7043,
+                                                                            "end": 7055
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 6685,
+                                                                "end": 7056
+                                                            },
+                                                            {
+                                                                "pred": "image",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "ImageObject",
+                                                                            "errors": [],
+                                                                            "begin": 6694,
+                                                                            "end": 6707
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "ImageObject",
+                                                                    "idProperty": {
+                                                                        "pred": "urn:spore:url",
+                                                                        "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                                        "errors": [],
+                                                                        "begin": 7072,
+                                                                        "end": 7117
+                                                                    },
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "inLanguage",
+                                                                            "value": "en-US",
+                                                                            "errors": [],
+                                                                            "begin": 6721,
+                                                                            "end": 6728
+                                                                        },
+                                                                        {
+                                                                            "pred": "url",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6787,
+                                                                            "end": 6889
+                                                                        },
+                                                                        {
+                                                                            "pred": "contentUrl",
+                                                                            "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                                            "errors": [],
+                                                                            "begin": 6903,
+                                                                            "end": 7005
+                                                                        },
+                                                                        {
+                                                                            "pred": "width",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7014,
+                                                                            "end": 7018
+                                                                        },
+                                                                        {
+                                                                            "pred": "height",
+                                                                            "value": "1200",
+                                                                            "errors": [],
+                                                                            "begin": 7028,
+                                                                            "end": 7032
+                                                                        },
+                                                                        {
+                                                                            "pred": "caption",
+                                                                            "value": "TechCrunch",
+                                                                            "errors": [],
+                                                                            "begin": 7043,
+                                                                            "end": 7055
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 7065,
+                                                                "end": 7118
+                                                            }
+                                                        ],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 6199,
+                                                    "end": 6245
+                                                },
+                                                {
+                                                    "pred": "potentialAction",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "SearchAction",
+                                                                "errors": [],
+                                                                "begin": 6295,
+                                                                "end": 6309
+                                                            }
+                                                        ],
+                                                        "typeGroup": "SearchAction",
+                                                        "errors": [],
+                                                        "properties": [],
+                                                        "nodeProperties": [
+                                                            {
+                                                                "pred": "target",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "EntryPoint",
+                                                                            "errors": [],
+                                                                            "begin": 6328,
+                                                                            "end": 6340
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "EntryPoint",
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "urlTemplate",
+                                                                            "value": "https://techcrunch.com/?s\u003d{search_term_string}",
+                                                                            "errors": [],
+                                                                            "begin": 6355,
+                                                                            "end": 6403
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 6319,
+                                                                "end": 6404
+                                                            },
+                                                            {
+                                                                "pred": "query-input",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "PropertyValueSpecification",
+                                                                            "errors": [],
+                                                                            "begin": 6428,
+                                                                            "end": 6456
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "PropertyValueSpecification",
+                                                                    "errors": [],
+                                                                    "properties": [
+                                                                        {
+                                                                            "pred": "valueRequired",
+                                                                            "value": "http://schema.org/True",
+                                                                            "errors": [],
+                                                                            "begin": 6473,
+                                                                            "end": 6477
+                                                                        },
+                                                                        {
+                                                                            "pred": "valueName",
+                                                                            "value": "search_term_string",
+                                                                            "errors": [],
+                                                                            "begin": 6490,
+                                                                            "end": 6510
+                                                                        }
+                                                                    ],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 6419,
+                                                                "end": 6511
+                                                            }
+                                                        ],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 6286,
+                                                    "end": 6512
+                                                }
+                                            ],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4067,
+                                        "end": 4108
+                                    },
+                                    {
+                                        "pred": "primaryImageOfPage",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 4967,
+                                                    "end": 4980
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#primaryimage",
+                                                "errors": [],
+                                                "begin": 5008,
+                                                "end": 5101
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 4994,
+                                                    "end": 5001
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5108,
+                                                    "end": 5185
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5199,
+                                                    "end": 5276
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "3000",
+                                                    "errors": [],
+                                                    "begin": 5285,
+                                                    "end": 5289
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "2003",
+                                                    "errors": [],
+                                                    "begin": 5299,
+                                                    "end": 5303
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "Signage is displayed at the entrance to the Github Inc. offices in San Francisco, California, U.S., on Monday, June 4, 2018. Microsoft Corp. is buying GitHub for $7.5 billion in stock, bringing in house a community of 28 million programmers who publish code openly and extending a shift away from a strategy of shrouding its software in secrecy. Photographer: Michael Short/Bloomberg via Getty Images",
+                                                    "errors": [],
+                                                    "begin": 5314,
+                                                    "end": 5717
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4130,
+                                        "end": 4231
+                                    },
+                                    {
+                                        "pred": "image",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 4967,
+                                                    "end": 4980
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#primaryimage",
+                                                "errors": [],
+                                                "begin": 5008,
+                                                "end": 5101
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 4994,
+                                                    "end": 5001
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5108,
+                                                    "end": 5185
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                                    "errors": [],
+                                                    "begin": 5199,
+                                                    "end": 5276
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "3000",
+                                                    "errors": [],
+                                                    "begin": 5285,
+                                                    "end": 5289
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "2003",
+                                                    "errors": [],
+                                                    "begin": 5299,
+                                                    "end": 5303
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "Signage is displayed at the entrance to the Github Inc. offices in San Francisco, California, U.S., on Monday, June 4, 2018. Microsoft Corp. is buying GitHub for $7.5 billion in stock, bringing in house a community of 28 million programmers who publish code openly and extending a shift away from a strategy of shrouding its software in secrecy. Photographer: Michael Short/Bloomberg via Getty Images",
+                                                    "errors": [],
+                                                    "begin": 5314,
+                                                    "end": 5717
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4240,
+                                        "end": 4341
+                                    },
+                                    {
+                                        "pred": "breadcrumb",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "BreadcrumbList",
+                                                    "errors": [],
+                                                    "begin": 5728,
+                                                    "end": 5744
+                                                }
+                                            ],
+                                            "typeGroup": "BreadcrumbList",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#breadcrumb",
+                                                "errors": [],
+                                                "begin": 5751,
+                                                "end": 5842
+                                            },
+                                            "errors": [],
+                                            "properties": [],
+                                            "nodeProperties": [
+                                                {
+                                                    "pred": "itemListElement",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "ListItem",
+                                                                "errors": [],
+                                                                "begin": 5871,
+                                                                "end": 5881
+                                                            }
+                                                        ],
+                                                        "typeGroup": "ListItem",
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "position",
+                                                                "value": "1",
+                                                                "errors": [],
+                                                                "begin": 5893,
+                                                                "end": 5894
+                                                            },
+                                                            {
+                                                                "pred": "name",
+                                                                "value": "Home",
+                                                                "errors": [],
+                                                                "begin": 5902,
+                                                                "end": 5908
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [
+                                                            {
+                                                                "pred": "item",
+                                                                "target": {
+                                                                    "types": [
+                                                                        {
+                                                                            "pred": "itemtype",
+                                                                            "value": "Thing",
+                                                                            "errors": [],
+                                                                            "begin": 5916,
+                                                                            "end": 5941
+                                                                        }
+                                                                    ],
+                                                                    "typeGroup": "Thing",
+                                                                    "idProperty": {
+                                                                        "pred": "urn:spore:url",
+                                                                        "value": "https://techcrunch.com/",
+                                                                        "errors": [],
+                                                                        "begin": 5916,
+                                                                        "end": 5941
+                                                                    },
+                                                                    "errors": [],
+                                                                    "properties": [],
+                                                                    "nodeProperties": [],
+                                                                    "numErrors": 0,
+                                                                    "numWarnings": 0
+                                                                },
+                                                                "errors": [],
+                                                                "begin": 5916,
+                                                                "end": 5941
+                                                            }
+                                                        ],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 5862,
+                                                    "end": 5942
+                                                },
+                                                {
+                                                    "pred": "itemListElement",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "ListItem",
+                                                                "errors": [],
+                                                                "begin": 5952,
+                                                                "end": 5962
+                                                            }
+                                                        ],
+                                                        "typeGroup": "ListItem",
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "position",
+                                                                "value": "2",
+                                                                "errors": [],
+                                                                "begin": 5974,
+                                                                "end": 5975
+                                                            },
+                                                            {
+                                                                "pred": "name",
+                                                                "value": "GitHub nabs JavaScript packaging vendor npm",
+                                                                "errors": [],
+                                                                "begin": 5983,
+                                                                "end": 6028
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 5943,
+                                                    "end": 6029
+                                                }
+                                            ],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4701,
+                                        "end": 4800
+                                    },
+                                    {
+                                        "pred": "potentialAction",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ReadAction",
+                                                    "errors": [],
+                                                    "begin": 4850,
+                                                    "end": 4862
+                                                }
+                                            ],
+                                            "typeGroup": "ReadAction",
+                                            "errors": [],
+                                            "properties": [],
+                                            "nodeProperties": [
+                                                {
+                                                    "pred": "target",
+                                                    "target": {
+                                                        "types": [
+                                                            {
+                                                                "pred": "itemtype",
+                                                                "value": "EntryPoint",
+                                                                "errors": [],
+                                                                "begin": 4873,
+                                                                "end": 4953
+                                                            }
+                                                        ],
+                                                        "typeGroup": "EntryPoint",
+                                                        "errors": [],
+                                                        "properties": [
+                                                            {
+                                                                "pred": "urlTemplate",
+                                                                "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/",
+                                                                "errors": [],
+                                                                "begin": 4873,
+                                                                "end": 4953
+                                                            }
+                                                        ],
+                                                        "nodeProperties": [],
+                                                        "numErrors": 0,
+                                                        "numWarnings": 0
+                                                    },
+                                                    "errors": [],
+                                                    "begin": 4873,
+                                                    "end": 4953
+                                                }
+                                            ],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 4841,
+                                        "end": 4955
+                                    }
+                                ],
+                                "numErrors": 0,
+                                "numWarnings": 0
+                            },
+                            "errors": [],
+                            "begin": 3091,
+                            "end": 3179
+                        },
+                        {
+                            "pred": "publisher",
+                            "target": {
+                                "types": [
+                                    {
+                                        "pred": "itemtype",
+                                        "value": "Organization",
+                                        "errors": [],
+                                        "begin": 6545,
+                                        "end": 6559
+                                    }
+                                ],
+                                "typeGroup": "Organization",
+                                "idProperty": {
+                                    "pred": "urn:spore:url",
+                                    "value": "https://techcrunch.com/#organization",
+                                    "errors": [],
+                                    "begin": 6566,
+                                    "end": 6604
+                                },
+                                "errors": [],
+                                "properties": [
+                                    {
+                                        "pred": "name",
+                                        "value": "TechCrunch",
+                                        "errors": [],
+                                        "begin": 6612,
+                                        "end": 6624
+                                    },
+                                    {
+                                        "pred": "alternateName",
+                                        "value": "TC",
+                                        "errors": [],
+                                        "begin": 6641,
+                                        "end": 6645
+                                    },
+                                    {
+                                        "pred": "url",
+                                        "value": "https://techcrunch.com/",
+                                        "errors": [],
+                                        "begin": 6652,
+                                        "end": 6677
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://www.facebook.com/techcrunch",
+                                        "errors": [],
+                                        "begin": 7129,
+                                        "end": 7166
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://x.com/TechCrunch",
+                                        "errors": [],
+                                        "begin": 7167,
+                                        "end": 7193
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://mstdn.social/@TechCrunch",
+                                        "errors": [],
+                                        "begin": 7194,
+                                        "end": 7228
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://bsky.app/profile/techcrunch.com",
+                                        "errors": [],
+                                        "begin": 7229,
+                                        "end": 7270
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://www.threads.net/@techcrunch",
+                                        "errors": [],
+                                        "begin": 7271,
+                                        "end": 7308
+                                    }
+                                ],
+                                "nodeProperties": [
+                                    {
+                                        "pred": "logo",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 6694,
+                                                    "end": 6707
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                "errors": [],
+                                                "begin": 7072,
+                                                "end": 7117
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 6721,
+                                                    "end": 6728
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6787,
+                                                    "end": 6889
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6903,
+                                                    "end": 7005
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7014,
+                                                    "end": 7018
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7028,
+                                                    "end": 7032
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "TechCrunch",
+                                                    "errors": [],
+                                                    "begin": 7043,
+                                                    "end": 7055
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 6685,
+                                        "end": 7056
+                                    },
+                                    {
+                                        "pred": "image",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 6694,
+                                                    "end": 6707
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                "errors": [],
+                                                "begin": 7072,
+                                                "end": 7117
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 6721,
+                                                    "end": 6728
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6787,
+                                                    "end": 6889
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6903,
+                                                    "end": 7005
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7014,
+                                                    "end": 7018
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7028,
+                                                    "end": 7032
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "TechCrunch",
+                                                    "errors": [],
+                                                    "begin": 7043,
+                                                    "end": 7055
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 7065,
+                                        "end": 7118
+                                    }
+                                ],
+                                "numErrors": 0,
+                                "numWarnings": 0
+                            },
+                            "errors": [],
+                            "begin": 3225,
+                            "end": 3271
+                        },
+                        {
+                            "pred": "image",
+                            "target": {
+                                "types": [
+                                    {
+                                        "pred": "itemtype",
+                                        "value": "ImageObject",
+                                        "errors": [],
+                                        "begin": 4967,
+                                        "end": 4980
+                                    }
+                                ],
+                                "typeGroup": "ImageObject",
+                                "idProperty": {
+                                    "pred": "urn:spore:url",
+                                    "value": "https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/#primaryimage",
+                                    "errors": [],
+                                    "begin": 5008,
+                                    "end": 5101
+                                },
+                                "errors": [],
+                                "properties": [
+                                    {
+                                        "pred": "inLanguage",
+                                        "value": "en-US",
+                                        "errors": [],
+                                        "begin": 4994,
+                                        "end": 5001
+                                    },
+                                    {
+                                        "pred": "url",
+                                        "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                        "errors": [],
+                                        "begin": 5108,
+                                        "end": 5185
+                                    },
+                                    {
+                                        "pred": "contentUrl",
+                                        "value": "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
+                                        "errors": [],
+                                        "begin": 5199,
+                                        "end": 5276
+                                    },
+                                    {
+                                        "pred": "width",
+                                        "value": "3000",
+                                        "errors": [],
+                                        "begin": 5285,
+                                        "end": 5289
+                                    },
+                                    {
+                                        "pred": "height",
+                                        "value": "2003",
+                                        "errors": [],
+                                        "begin": 5299,
+                                        "end": 5303
+                                    },
+                                    {
+                                        "pred": "caption",
+                                        "value": "Signage is displayed at the entrance to the Github Inc. offices in San Francisco, California, U.S., on Monday, June 4, 2018. Microsoft Corp. is buying GitHub for $7.5 billion in stock, bringing in house a community of 28 million programmers who publish code openly and extending a shift away from a strategy of shrouding its software in secrecy. Photographer: Michael Short/Bloomberg via Getty Images",
+                                        "errors": [],
+                                        "begin": 5314,
+                                        "end": 5717
+                                    }
+                                ],
+                                "nodeProperties": [],
+                                "numErrors": 0,
+                                "numWarnings": 0
+                            },
+                            "errors": [],
+                            "begin": 3280,
+                            "end": 3381
+                        },
+                        {
+                            "pred": "speakable",
+                            "target": {
+                                "types": [
+                                    {
+                                        "pred": "itemtype",
+                                        "value": "SpeakableSpecification",
+                                        "errors": [],
+                                        "begin": 3645,
+                                        "end": 3669
+                                    }
+                                ],
+                                "typeGroup": "SpeakableSpecification",
+                                "errors": [],
+                                "properties": [
+                                    {
+                                        "pred": "cssSelector",
+                                        "value": "#speakable-summary",
+                                        "errors": [],
+                                        "begin": 3685,
+                                        "end": 3705
+                                    },
+                                    {
+                                        "pred": "value",
+                                        "value": "GitHub, the developer repository owned by Microsoft, made a little deal of its own this morning when it bought JavaScript packaging vendor npm for an undisclosed amount.",
+                                        "errors": [],
+                                        "begin": 141919,
+                                        "end": 142324
+                                    },
+                                    {
+                                        "pred": "value",
+                                        "value": "One of Africa’s most successful founders is back with a new AI startup and already raised $9M",
+                                        "errors": [],
+                                        "begin": 165013,
+                                        "end": 165516
+                                    }
+                                ],
+                                "nodeProperties": [],
+                                "numErrors": 0,
+                                "numWarnings": 0
+                            },
+                            "errors": [],
+                            "begin": 3636,
+                            "end": 3707
+                        },
+                        {
+                            "pred": "copyrightHolder",
+                            "target": {
+                                "types": [
+                                    {
+                                        "pred": "itemtype",
+                                        "value": "Organization",
+                                        "errors": [],
+                                        "begin": 6545,
+                                        "end": 6559
+                                    }
+                                ],
+                                "typeGroup": "Organization",
+                                "idProperty": {
+                                    "pred": "urn:spore:url",
+                                    "value": "https://techcrunch.com/#organization",
+                                    "errors": [],
+                                    "begin": 6566,
+                                    "end": 6604
+                                },
+                                "errors": [],
+                                "properties": [
+                                    {
+                                        "pred": "name",
+                                        "value": "TechCrunch",
+                                        "errors": [],
+                                        "begin": 6612,
+                                        "end": 6624
+                                    },
+                                    {
+                                        "pred": "alternateName",
+                                        "value": "TC",
+                                        "errors": [],
+                                        "begin": 6641,
+                                        "end": 6645
+                                    },
+                                    {
+                                        "pred": "url",
+                                        "value": "https://techcrunch.com/",
+                                        "errors": [],
+                                        "begin": 6652,
+                                        "end": 6677
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://www.facebook.com/techcrunch",
+                                        "errors": [],
+                                        "begin": 7129,
+                                        "end": 7166
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://x.com/TechCrunch",
+                                        "errors": [],
+                                        "begin": 7167,
+                                        "end": 7193
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://mstdn.social/@TechCrunch",
+                                        "errors": [],
+                                        "begin": 7194,
+                                        "end": 7228
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://bsky.app/profile/techcrunch.com",
+                                        "errors": [],
+                                        "begin": 7229,
+                                        "end": 7270
+                                    },
+                                    {
+                                        "pred": "sameAs",
+                                        "value": "https://www.threads.net/@techcrunch",
+                                        "errors": [],
+                                        "begin": 7271,
+                                        "end": 7308
+                                    }
+                                ],
+                                "nodeProperties": [
+                                    {
+                                        "pred": "logo",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 6694,
+                                                    "end": 6707
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                "errors": [],
+                                                "begin": 7072,
+                                                "end": 7117
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 6721,
+                                                    "end": 6728
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6787,
+                                                    "end": 6889
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6903,
+                                                    "end": 7005
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7014,
+                                                    "end": 7018
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7028,
+                                                    "end": 7032
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "TechCrunch",
+                                                    "errors": [],
+                                                    "begin": 7043,
+                                                    "end": 7055
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 6685,
+                                        "end": 7056
+                                    },
+                                    {
+                                        "pred": "image",
+                                        "target": {
+                                            "types": [
+                                                {
+                                                    "pred": "itemtype",
+                                                    "value": "ImageObject",
+                                                    "errors": [],
+                                                    "begin": 6694,
+                                                    "end": 6707
+                                                }
+                                            ],
+                                            "typeGroup": "ImageObject",
+                                            "idProperty": {
+                                                "pred": "urn:spore:url",
+                                                "value": "https://techcrunch.com/#/schema/logo/image/",
+                                                "errors": [],
+                                                "begin": 7072,
+                                                "end": 7117
+                                            },
+                                            "errors": [],
+                                            "properties": [
+                                                {
+                                                    "pred": "inLanguage",
+                                                    "value": "en-US",
+                                                    "errors": [],
+                                                    "begin": 6721,
+                                                    "end": 6728
+                                                },
+                                                {
+                                                    "pred": "url",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6787,
+                                                    "end": 6889
+                                                },
+                                                {
+                                                    "pred": "contentUrl",
+                                                    "value": "https://techcrunch.com/wp-content/uploads/2018/04/tc-logo-2018-square-reverse2x.png?resize\u003d1200,1200",
+                                                    "errors": [],
+                                                    "begin": 6903,
+                                                    "end": 7005
+                                                },
+                                                {
+                                                    "pred": "width",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7014,
+                                                    "end": 7018
+                                                },
+                                                {
+                                                    "pred": "height",
+                                                    "value": "1200",
+                                                    "errors": [],
+                                                    "begin": 7028,
+                                                    "end": 7032
+                                                },
+                                                {
+                                                    "pred": "caption",
+                                                    "value": "TechCrunch",
+                                                    "errors": [],
+                                                    "begin": 7043,
+                                                    "end": 7055
+                                                }
+                                            ],
+                                            "nodeProperties": [],
+                                            "numErrors": 0,
+                                            "numWarnings": 0
+                                        },
+                                        "errors": [],
+                                        "begin": 7065,
+                                        "end": 7118
+                                    }
+                                ],
+                                "numErrors": 0,
+                                "numWarnings": 0
+                            },
+                            "errors": [],
+                            "begin": 3749,
+                            "end": 3795
+                        }
+                    ],
+                    "numErrors": 0,
+                    "numWarnings": 0
+                }
+            ],
+            "numNodesWithError": 0,
+            "numNodesWithWarning": 0,
+            "numErrors": 0,
+            "numWarnings": 0,
+            "type": "NewsArticle"
+        }
+    ],
+    "numObjects": 1,
+    "errors": [],
+    "totalNumErrors": 0,
+    "totalNumWarnings": 0
+}
