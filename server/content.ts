@@ -7,8 +7,7 @@ import { structuredDataTestHtml, structuredDataTestUrl } from "structured-data-t
 // @ts-expect-error
 import { Google } from "structured-data-testing-tool/presets"
 import { checkValueExistsInCollection } from './db';
-import { writeFileSync } from 'fs';
-import { appendFile } from 'fs/promises';
+import stringHash from 'string-hash';
 
 
 const virtualConsole = new jsdom.VirtualConsole();
@@ -28,7 +27,7 @@ async function getArticleFrom(text: string, type: "text" | "url" = "url") {
         authors: readabilityArticle?.byline || mercuryArticle.author,
         thumbnail: mercuryArticle.lead_image_url,
         publishedTime: readabilityArticle?.publishedTime || mercuryArticle.date_published,
-        textContent: readabilityArticle?.textContent
+        textContent: readabilityArticle?.textContent || mercuryArticle.content !== null ? new JSDOM(String(mercuryArticle.content), { virtualConsole }) : void (0)
     }
 
     return article;
@@ -36,11 +35,6 @@ async function getArticleFrom(text: string, type: "text" | "url" = "url") {
 
 async function getLocalSchema(content: string, type: "url" | "text" = "url") {
     const body = type === "url" ? await (await fetch(content)).text() : content;
-    const dom = new JSDOM(body, { virtualConsole });
-
-    if (!isProbablyReaderable(dom.window.document)) {
-        return false;
-    }
 
     let schemas;
     if (type === "url") {
@@ -65,54 +59,25 @@ async function getOnlineSchema(url: string) {
 
     const rawSchema = JSON.parse(response);
 
-    const medium = {
-        url: rawSchema.url,
-        isRendered: rawSchema.isRendered,
-        errors: rawSchema.errors,
-        tripleGroups: rawSchema.tripleGroups,
-    }
-
-    const schemas = Object.keys(medium.tripleGroups).reduce((acc: typeof medium.tripleGroups, key) => {
-        const group = medium.tripleGroups[key];
+    const schemas = Object.keys(rawSchema.tripleGroups).reduce((acc: typeof rawSchema.tripleGroups, key) => {
+        const group = rawSchema.tripleGroups[key];
         let props = group.nodes.map((node: any) => {
             const { properties, typeGroup } = node;
             return Object.fromEntries([["type", typeGroup]].concat(properties.map((prop: any) => [prop.pred, prop.value])));
         });
         return [...acc, ...props];
-    }, []);/**
-       output -- [
-  {
-    type: "NewsArticle",
-    headline: "GitHub nabs JavaScript packaging vendor npm",
-    datePublished: "2020-03-16T17:41:42+00:00",
-    dateModified: "2020-03-16T18:07:50+00:00",
-    wordCount: "417",
-    commentCount: "0",
-    thumbnailUrl: "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-967228260.jpg",
-    keywords: "npm",
-    articleSection: "Startups",
-    inLanguage: "en-US",
-    copyrightYear: "2020",
-  }
-] */
+    }, []);
 
 
     const acceptedTypes = ["Blog", "Article", "NewsArticle", "TechArticle", "BlogPosting", "ScholarlyArticle", "Report", "AnalysisNewsArticle", "OpinionNewsArticle", "AskPublicNewsArticle", "BackgroundNewsArticle", "ReportageNewsArticle", "ReviewNewsArticle"];
     const typeAccepted = (type: string) => acceptedTypes.map(_type => _type === type).reduce((a, b) => a || b, false)
 
-    let isAcceptable: boolean = schemas.map((schema: { type: string }) => typeAccepted(schema.type)).reduce((a: any, b: any) => a || b, false);
-    
-    if (!isAcceptable) {
-        return false
-    }
+    const acceptables = schemas.filter((schema: { type: string }) => typeAccepted(schema.type));
 
     const hasHeadline = (schema: any) => 'headline' in schema;
     const hasDatePublished = (schema: any) => 'datePublished' in schema;
-    const hasDateModified = (schema: any) => 'dateModified' in schema;
-    const hasCommentCount = (schema: any) => 'commentCount' in schema;
     const hasThumbnailUrl = (schema: any) => 'thumbnailUrl' in schema;
     const hasKeywords = (schema: any) => 'keywords' in schema;
-    const hasArticleSection = (schema: any) => 'articleSection' in schema;
     const hasLanguage = (schema: any) => 'inLanguage' in schema;
 
     const hasFunctions = [
@@ -123,72 +88,77 @@ async function getOnlineSchema(url: string) {
         hasThumbnailUrl
     ]
 
-    const hasVerification = (schema:any)=> hasFunctions.map(func=> func(schema)).reduce((a:boolean,b:boolean)=> a&&b, true)
-    const availableSchemaData = schemas.filter(hasVerification);
+    const hasVerification = (schema: any) => hasFunctions.map(func => func(schema)).reduce((a: boolean, b: boolean) => a && b, true)
+    const filteredSchemas = acceptables.filter(hasVerification);
 
-    const schema = {}
-    console.log(schema)
-    console.log(availableSchemaData)
-
+    return filteredSchemas[0]
 }
 
-async function articleAlreadyExists(article: any) {
-    for (let [key, value] of Object.entries(article)) {
-        if (await checkValueExistsInCollection("articles", key, value as any)) {
-            return true
-        }
-    }
-    return false
+async function articleAlreadyExists(url: string) {
+    return await checkValueExistsInCollection("articles", "origin_url", url) ? true : false
 }
 
-async function validUrl(url: string) {
+async function validAndProcessUrl(url: string) {
     const text = await (await fetch(url)).text()
 
-    const localSchema = await getLocalSchema(url, "text")
-
+    const localSchema = await getLocalSchema(text, "text")
     const onlineSchema = await getOnlineSchema(url)
 
-    if (!(localSchema && onlineSchema)) return "false 0"
+
+    if (!(localSchema || onlineSchema)) return { error: true, message: "Neither of the sources were able to aquire any useful information about the webpage." }
 
     const daysLimit = parseInt(process.env.NEWS_DATE_THREADSOLD ?? "5")
-    const dateLimit = new Date(Date.now() - 1000 * 60 * 60 * 24 * daysLimit)
+    const dateLimit = new Date(
+        Date.now() - 1000 * 60 * 60 * 24 * daysLimit
+    )
 
-    const hasValidNewsArticle = localSchema.schemas.includes("NewsArticle") && localSchema.schemas.includes("NewsArticle").length === 1 && new Date(localSchema.structuredData?.jsonld?.NewsArticle?.[0].datePublished) >= dateLimit
+    const hasValidNewsArticleLocal =
+        localSchema &&
+        localSchema.schemas.includes("NewsArticle") &&
+        localSchema.schemas.includes("NewsArticle").length === 1 &&
+        new Date(localSchema.structuredData?.jsonld?.NewsArticle?.[0].datePublished) >= dateLimit
 
-    if (!hasValidNewsArticle) return "false1"
+    const hasValidNewsArticleOnline =
+        onlineSchema ?
+            true :
+            false
 
-    const newsArticle = localSchema.structuredData?.jsonld?.NewsArticle[0]
-    console.log(onlineSchema)
+    if (!(hasValidNewsArticleLocal || hasValidNewsArticleOnline)) return { error: true, message: "Neither of the sources confirm that the webpage has a valid Article." }
+
+    const newsArticle = localSchema ? localSchema?.structuredData?.jsonld?.NewsArticle?.[0] : {}
 
     const raw_article = await getArticleFrom(text, "text")
 
     const article = {
         ...raw_article,
-        thumbnail: newsArticle?.thumbnail ?? raw_article.thumbnail,
-        authors: newsArticle?.author?.map((a: { name: string }) => a.name).join(", ") ?? raw_article.thumbnail,
-        keywords: newsArticle?.keywords?.join(", "),
-        title: newsArticle?.headline ?? raw_article.title
+        thumbnail: onlineSchema?.thumbnailUrl ?? newsArticle?.thumbnail ?? raw_article.thumbnail,
+        authors: newsArticle?.author?.map((a: { name: string }) => a.name).join(", ") ?? raw_article.authors,
+        keywords: onlineSchema?.keywords ?? newsArticle?.keywords?.join(", "),
+        title: onlineSchema?.headline ?? newsArticle?.headline ?? raw_article.title,
+        error: false
     }
 
     if (!article.title || !article.content) {
-        return "false2"
+        return {
+            error: true,
+            message: "The essential data for the Article could be found."
+        }
     }
 
-    const articleExists = await articleAlreadyExists(article)
+    const articleExists = await articleAlreadyExists(url)
     if (articleExists) {
-        return "false3";
+        return {
+            error: true,
+            message: "The Article already exists in the database"
+        };
     }
 
-    console.log(`Article "${article.title}" is valid and does not exist in the database.`);
     console.log(article);
+    console.log("Keys", Object.keys(article));
 
     return article
 }
-
-console.log(await validUrl("https://techcrunch.com/2020/03/16/github-nabs-javascript-packaging-vendor-npm/"))
-
 export {
-    getArticleFrom,
-    getLocalSchema as isPageNewsArticle,
-    validUrl
+    getArticleFrom,    getLocalSchema as isPageNewsArticle,
+    validAndProcessUrl
 }

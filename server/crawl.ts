@@ -7,7 +7,7 @@ import z, { number } from "zod";
 import { addSitemap, checkValueExistsInCollection, getAllSitemaps } from "./db";
 import axios, { AxiosInstance } from "axios"
 import axiosRetry from "axios-retry"
-import { validUrl as getArticle } from "./content";
+import { validAndProcessUrl } from "./content";
 
 const parser = new XMLParser();
 
@@ -59,8 +59,6 @@ class Crawler extends EventEmitter {
 
     constructor(_source: z.infer<typeof sourceSchema>, options: Partial<CrawlerOptionType> = {}) {
         super();
-
-        console.log(this.options.articleHardLimit)
 
         this.source = {
             ..._source,
@@ -126,8 +124,7 @@ class Crawler extends EventEmitter {
     update(status: typeof this.status, progress: number) {
         this.status = status;
         this.progress = progress;
-        this.emit("status", this.status);
-        this.emit("progress", this.progress);
+        console.log(status, progress)
     }
 
 
@@ -142,7 +139,6 @@ class Crawler extends EventEmitter {
     }
 
     async validateSitemap(sitemapUrl: URL) {
-        if (i > 0) return;
 
         const xml = await this.fetch(sitemapUrl, "xml");
 
@@ -175,12 +171,10 @@ class Crawler extends EventEmitter {
 
         if (xml.urlset) {
             for (const urlObj of xml.urlset.url) {
-                if (i > 0) break;
-
                 const url = urlObj["loc"]
-                const article = await getArticle(url)
+                const article = await validAndProcessUrl(url)
 
-                if (!article) {
+                if (article.error) {
                     continue;
                 }
 
@@ -203,10 +197,11 @@ class Crawler extends EventEmitter {
 
 
         if (robotsTxt?.sitemaps?.length) {
-            this.update('crawling', 0);
             await this.validateSitemap(new URL(robotsTxt.sitemaps[0]));
 
             for (let sitemap of robotsTxt.sitemaps) {
+                console.log("Sitemap found:", sitemap);
+                this.update('crawling', ++this.progress);
                 await this.validateSitemap(new URL(sitemap));
             }
 

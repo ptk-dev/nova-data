@@ -49,7 +49,6 @@ const routes = {
 
                 const crawler = new Crawler(source);
                 
-                crawler.on("status", console.log.bind("status: "));
             } catch (e){
                 console.log(new Error(e))
             }
