@@ -1,14 +1,15 @@
 import { Readability, isProbablyReaderable } from '@mozilla/readability';
 import jsdom, { JSDOM } from 'jsdom';
 import Mercury from "@postlight/mercury-parser"
+import {copy} from "copy-paste"
 
 // @ts-expect-error
 import { structuredDataTestHtml, structuredDataTestUrl } from "structured-data-testing-tool"
 // @ts-expect-error
 import { Google } from "structured-data-testing-tool/presets"
-import { checkValueExistsInCollection } from './db';
-import stringHash from 'string-hash';
-
+import { addArticle, checkValueExistsInCollection, updateCrawls } from './db';
+import z from 'zod';
+import { articleSchema } from './schema';
 
 const virtualConsole = new jsdom.VirtualConsole();
 
@@ -26,8 +27,8 @@ async function getArticleFrom(text: string, type: "text" | "url" = "url") {
         excerpt: readabilityArticle?.excerpt || mercuryArticle.excerpt,
         authors: readabilityArticle?.byline || mercuryArticle.author,
         thumbnail: mercuryArticle.lead_image_url,
-        publishedTime: readabilityArticle?.publishedTime || mercuryArticle.date_published,
-        textContent: readabilityArticle?.textContent || mercuryArticle.content !== null ? new JSDOM(String(mercuryArticle.content), { virtualConsole }) : void (0)
+        date: new Date(readabilityArticle?.publishedTime || mercuryArticle.date_published || ""),
+        textContent: readabilityArticle?.textContent || mercuryArticle.content !== null ? new JSDOM(String(mercuryArticle.content), { virtualConsole }).window.document.body.textContent : null
     }
 
     return article;
@@ -95,17 +96,17 @@ async function getOnlineSchema(url: string) {
 }
 
 async function articleAlreadyExists(url: string) {
-    return await checkValueExistsInCollection("articles", "origin_url", url) ? true : false
+    return await checkValueExistsInCollection("articles", "url", url) ? true : false
 }
 
-async function validAndProcessUrl(url: string) {
+async function validAndProcessUrl(url: string, source: string, crawl: string) {
     const text = await (await fetch(url)).text()
 
     const localSchema = await getLocalSchema(text, "text")
-    const onlineSchema = await getOnlineSchema(url)
+    // const onlineSchema = await getOnlineSchema(url)
 
 
-    if (!(localSchema || onlineSchema)) return { error: true, message: "Neither of the sources were able to aquire any useful information about the webpage." }
+    if (!(localSchema /*|| onlineSchema*/)) return { error: true, message: "Neither of the sources were able to aquire any useful information about the webpage." }
 
     const daysLimit = parseInt(process.env.NEWS_DATE_THREADSOLD ?? "5")
     const dateLimit = new Date(
@@ -115,30 +116,33 @@ async function validAndProcessUrl(url: string) {
     const hasValidNewsArticleLocal =
         localSchema &&
         localSchema.schemas.includes("NewsArticle") &&
-        localSchema.schemas.includes("NewsArticle").length === 1 &&
         new Date(localSchema.structuredData?.jsonld?.NewsArticle?.[0].datePublished) >= dateLimit
 
-    const hasValidNewsArticleOnline =
-        onlineSchema ?
-            true :
-            false
+    // const hasValidNewsArticleOnline =
+    //     onlineSchema ?
+    //         true :
+    //         false
 
-    if (!(hasValidNewsArticleLocal || hasValidNewsArticleOnline)) return { error: true, message: "Neither of the sources confirm that the webpage has a valid Article." }
+    if (!(hasValidNewsArticleLocal)) return { error: true, message: "Neither of the sources confirm that the webpage has a valid Article." }
 
     const newsArticle = localSchema ? localSchema?.structuredData?.jsonld?.NewsArticle?.[0] : {}
 
     const raw_article = await getArticleFrom(text, "text")
 
-    const article = {
+    const thumbnail= newsArticle?.thumbnail ?? newsArticle?.thumbnailUrl ?? localSchema?.structuredData?.metatags?.primaryImageOfPage?.[0] ?? raw_article.thumbnail
+    const article: z.infer<typeof articleSchema> = {
         ...raw_article,
-        thumbnail: onlineSchema?.thumbnailUrl ?? newsArticle?.thumbnail ?? raw_article.thumbnail,
+        thumbnail: /*onlineSchema?.thumbnailUrl ??*/ thumbnail ?? newsArticle?.thumbnail ?? raw_article.thumbnail,
         authors: newsArticle?.author?.map((a: { name: string }) => a.name).join(", ") ?? raw_article.authors,
-        keywords: onlineSchema?.keywords ?? newsArticle?.keywords?.join(", "),
-        title: onlineSchema?.headline ?? newsArticle?.headline ?? raw_article.title,
-        error: false
+        keywords: /*onlineSchema?.keywords ??*/ newsArticle?.keywords?.join(", "),
+        title: /*onlineSchema?.headline ?? */newsArticle?.headline ?? raw_article.title,
+        url,
+        source,
+        crawl,
     }
 
-    if (!article.title || !article.content) {
+
+    if (!(article.title && article.content && article.authors && article.thumbnail)) {
         return {
             error: true,
             message: "The essential data for the Article could be found."
@@ -153,12 +157,17 @@ async function validAndProcessUrl(url: string) {
         };
     }
 
-    console.log(article);
-    console.log("Keys", Object.keys(article));
 
-    return article
+
+    const dbArticle = await addArticle(article)
+
+    await updateCrawls(crawl, {
+        article: dbArticle?.id
+    })
+
+    return { ...dbArticle, error: false }
 }
 export {
-    getArticleFrom,    getLocalSchema as isPageNewsArticle,
+    getArticleFrom, getLocalSchema as isPageNewsArticle,
     validAndProcessUrl
 }

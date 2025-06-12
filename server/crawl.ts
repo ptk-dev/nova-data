@@ -4,7 +4,7 @@ import EventEmitter from "events";
 import { XMLParser } from "fast-xml-parser";
 import { sitemapSchema, sourceSchema } from "./schema";
 import z, { number } from "zod";
-import { addSitemap, checkValueExistsInCollection, getAllSitemaps } from "./db";
+import { addCrawl, addSitemap, checkValueExistsInCollection, getAllSitemaps, getSitemapById, updateSitemap } from "./db";
 import axios, { AxiosInstance } from "axios"
 import axiosRetry from "axios-retry"
 import { validAndProcessUrl } from "./content";
@@ -53,7 +53,9 @@ class Crawler extends EventEmitter {
     };
     source: CrawlerSource;
     status: 'idle' | 'crawling' | 'completed' | 'error';
-    progress: number;
+    progress = {
+        crawls: 0,
+    };
     axe: AxiosInstance;
     articlesListed = 0;
 
@@ -90,14 +92,13 @@ class Crawler extends EventEmitter {
 
         this.options = { ...this.options, ...options };
         this.status = 'idle';
-        this.progress = 0;
 
         this.init();
     }
 
     async init() {
         const result = await this.findRss();
-        if (result.error) {
+        if (result && result.error) {
             console.log("Reason:", result.reason);
             console.log("Message:", result.message);
         }
@@ -121,24 +122,83 @@ class Crawler extends EventEmitter {
         return await response[type]();
     }
 
-    update(status: typeof this.status, progress: number) {
+    update(status: typeof this.status, progress?: number, message?: string) {
         this.status = status;
-        this.progress = progress;
-        console.log(status, progress)
+        if (progress) this.progress.crawls = progress;
+        console.log(status, progress, message)
     }
 
 
 
     async addSitemap(sitemapToAdd: z.infer<typeof sitemapSchema>) {
-        const isExists = await checkValueExistsInCollection("sitemaps", "url", sitemapToAdd.url);
+        let isExists = await checkValueExistsInCollection("sitemaps", "url", sitemapToAdd.url);
         if (!isExists) {
             const sitemap = await addSitemap(sitemapToAdd)
             return sitemap!
+        } else if (!isExists.verified && sitemapToAdd.verified) {
+            isExists = await updateSitemap(isExists.id, sitemapToAdd);
         }
+
         return isExists
     }
 
+    async addCrawls(url: string, sitemap: string) {
+        let isExists = await checkValueExistsInCollection("crawls", "url", url)
+        if (!isExists) {
+            const crawl = await addCrawl({
+                source: this.source.id,
+                name: this.source.name,
+                url,
+                sitemap
+            })
+            return crawl!
+        }
+        return isExists!
+    }
+
+    async updateSitemap(id: string, params: object) {
+        const sitemap = await getSitemapById(id)
+
+        if (sitemap) {
+            const newPreSitemap = { ...sitemap, ...params, last_crawl: new Date(sitemap.last_crawl || "") } as unknown as z.infer<typeof sitemapSchema>
+
+            const newSitemap = await updateSitemap(id, newPreSitemap)
+
+            return newSitemap
+        }
+    }
+
+    haltCrawling() {
+        const hardLimit = parseInt(process.env.ARTICLE_PER_SOURCE_HARDLIMIT || "10")
+        const currentNumber = this.progress.crawls
+
+        if (currentNumber > hardLimit) return true
+    }
+
     async validateSitemap(sitemapUrl: URL) {
+        const sitemap = await checkValueExistsInCollection("sitemaps", "url", sitemapUrl.href) || await this.addSitemap({
+            url: sitemapUrl.href,
+            news: false,
+            source: this.source.id,
+            verified: false,
+            last_crawl: new Date()
+        });
+
+        if (this.haltCrawling()) return;
+
+        await this.updateSitemap(sitemap!.id, { last_crawl: new Date() })
+
+        if (sitemap!.verified && !sitemap!.news) return;
+        if (!sitemap!.last_crawl) {
+            const crawlTime = new Date(!sitemap!.last_crawl as unknown as string || "")
+            const maxOffsetHours = parseInt(process.env.SITEMAP_LEAST_HOURS_FOR_RECRAWL || "2")
+            // @ts-expect-error
+            if (!(Math.abs(new Date() - crawlTime) / (1000 * 60 * 60) >= maxOffsetHours)) {
+                console.log("Skipped because of too short period of re-pinging.")
+                return;
+            }
+        }
+        this.update("crawling", undefined, sitemap!.id)
 
         const xml = await this.fetch(sitemapUrl, "xml");
 
@@ -151,36 +211,52 @@ class Crawler extends EventEmitter {
         }
 
         if (xml.sitemapindex) {
-            await this.addSitemap({
-                url: sitemapUrl.href,
-                news: false,
-                source: this.source.id,
-                verified: true
-            });
+            await this.updateSitemap(sitemap!.id, { news: false, verified: true })
 
-            for (const sitemap of xml.sitemapindex.sitemap) {
+            if (xml.sitemapindex.sitemap && !Array.isArray(xml.sitemapindex.sitemap)) {
+                const sitemap = xml.sitemapindex.sitemap
                 await this.addSitemap({
                     url: sitemap.loc,
                     news: false,
                     source: this.source.id,
-                    verified: false
+                    verified: false,
+                    last_crawl: new Date()
                 });
-            };
+            } else {
+                for (const sitemap of xml.sitemapindex.sitemap) {
+                    await this.addSitemap({
+                        url: sitemap.loc,
+                        news: false,
+                        source: this.source.id,
+                        last_crawl: new Date(),
+                        verified: false
+                    });
+                };
+            }
             return;
         }
 
         if (xml.urlset) {
+            let hasNews = false
+
             for (const urlObj of xml.urlset.url) {
+                if (this.haltCrawling()) return;
                 const url = urlObj["loc"]
-                const article = await validAndProcessUrl(url)
+                if (!url) continue;
+
+                console.log("testing link", url)
+
+                const crawl = await this.addCrawls(url, sitemap!.id)
+                const article = await validAndProcessUrl(url, this.source.id, crawl.id)
 
                 if (article.error) {
+                    console.log(article)
                     continue;
                 }
-
-
-                i++;
+                hasNews = true
             }
+
+            await this.updateSitemap(sitemap!.id, { news: hasNews, verified: true, last_crawl: new Date() })
         }
     }
 
@@ -197,26 +273,46 @@ class Crawler extends EventEmitter {
 
 
         if (robotsTxt?.sitemaps?.length) {
+            if (this.haltCrawling()) return;
             await this.validateSitemap(new URL(robotsTxt.sitemaps[0]));
-
+            
             for (let sitemap of robotsTxt.sitemaps) {
-                console.log("Sitemap found:", sitemap);
-                this.update('crawling', ++this.progress);
-                await this.validateSitemap(new URL(sitemap));
+                if (this.haltCrawling()) return;
+                if (!await isSitemapUrlVerified(sitemap)) await this.validateSitemap(new URL(sitemap));
             }
+            
+            console.log("Robots.txt step finished.")
+        }
+        
 
-            return {
-                reason: 1,
-                message: reasons[1]
-            };
+        const unValidatedSitemaps = (await getAllSitemaps()).filter(sitemap => !sitemap.verified && sitemap.source === this.source.id);
+        console.log("Un-Validated step finished.")
+        
+        for (const sitemap of unValidatedSitemaps) {
+            if (this.haltCrawling()) return;
+            if (!await isSitemapUrlVerified(sitemap.url)) await this.validateSitemap(new URL(sitemap.url))
+            }
+        console.log("Un-Validated step finished.")
+        
+        const newsSitemaps = (await getAllSitemaps()).filter(sitemap => !sitemap.verified && sitemap.news);
+        
+        for (const sitemap of newsSitemaps) {
+            if (this.haltCrawling()) return;
+            await this.validateSitemap(new URL(sitemap.url))
         }
 
+        console.log("Finished!!")
+
         return {
-            error: true,
-            reason: 0,
-            message: reasons[0]
+            error: false,
+            reason: 1,
+            message: reasons[1]
         };
     }
+}
+
+async function isSitemapUrlVerified(sitemap: string) {
+    return (await getAllSitemaps()).some(s => s.url === sitemap && s.verified);
 }
 
 export { Crawler };

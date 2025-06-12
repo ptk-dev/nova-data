@@ -80,8 +80,21 @@ async function addSitemap(sitemap: z.infer<typeof sitemapSchema>) {
     }
 }
 
+async function updateSitemap(sitemapId: string, sitemap: z.infer<typeof sitemapSchema>) {
+    const processedSitemap = sitemapSchema.parse(sitemap);
+    try {
+        return pb.collection(sitemaps).update(sitemapId, processedSitemap);
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            console.error("Validation failed:", error.errors);
+        } else {
+            console.error("An unexpected error occurred:", error);
+        }
+    }
+}
+
 async function checkAttrInCollection(collection: Collections, attr: string, value: string) {
-    const records = await pb.collection(collection).getList(1,1, {
+    const records = await pb.collection(collection).getList(1, 1, {
         filter: `${attr} = "${value}"`
     });
 
@@ -90,11 +103,25 @@ async function checkAttrInCollection(collection: Collections, attr: string, valu
     }
 }
 
-async function checkValueExistsInCollection(collection: Collections, attr:string, value: string) {
+async function checkValueExistsInCollection(collection: Collections, attr: string, value: string) {
     const records = await checkAttrInCollection(collection, attr, value)
 
-    if (records?.totalItems===1) {
+    if (records?.totalItems === 1) {
         return records.items[0]
+    }
+}
+
+async function updateCrawls(id: string, changes: Partial<z.infer<typeof crawlSchema>>) {
+    const prevCrawl = await getCrawlById(id)
+    try {
+        const processedCrawl = crawlSchema.parse({...prevCrawl, ...changes});
+        return pb.collection(crawls).update(id, processedCrawl);
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            console.error("Validation failed:", error.errors);
+        } else {
+            console.error("An unexpected error occurred:", error);
+        }
     }
 }
 
@@ -148,5 +175,7 @@ export {
     addCrawl,
     addSitemap,
     checkAttrInCollection,
-    checkValueExistsInCollection
+    checkValueExistsInCollection,
+    updateSitemap,
+    updateCrawls
 }

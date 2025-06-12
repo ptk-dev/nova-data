@@ -1,15 +1,17 @@
-import { URL } from "url";
 import { z } from "zod";
 
 const articleSchema = z.object({
-    id: z.string().uuid().optional(),
-    title: z.string().min(2).max(100),
-    article: z.string().min(2).max(100),
-    description: z.string().min(2).max(500),
-    thumbnail: z.string().url(),
-    author: z.string().min(2).max(100),
-    source: z.string().uuid(),
-    origin_url: z.string().url()
+    id: z.string().optional(),
+    title: z.string().min(2),
+    authors: z.string(),
+    thumbnail: z.string(),
+    keywords: z.string(),
+    content: z.string().nullable(),
+    excerpt: z.string().nullable(),
+    source: z.string(),
+    crawl: z.string(),
+    url: z.string().url(),
+    date: z.date().nullable(),
 });
 
 const sourceSchema = z.object({
@@ -25,7 +27,8 @@ const sitemapSchema = z.object({
     url: z.string(),
     source: z.string(),
     news: z.boolean(),
-    verified: z.boolean()
+    verified: z.boolean(),
+    last_crawl: z.date()
 })
 
 const crawlSchema = z.object({
@@ -33,6 +36,7 @@ const crawlSchema = z.object({
     source: z.string(),
     url: z.string(),
     article: z.string().optional(),
+    sitemap: z.string(),
 })
 
 export {

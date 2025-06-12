@@ -7,3 +7,5 @@ pb_migrations
 *.db
 *.zip.*
 *.zip
+
+.env
