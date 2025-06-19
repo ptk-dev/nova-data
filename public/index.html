@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Crawler Dashboard</title>
-    <style>
+    <!-- <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
             margin: 0;
@@ -65,10 +63,10 @@
             gap: 10px;
             margin-top: 20px;
         }
-    </style>
+    </style> -->
 </head>
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <div class="card">
             <h2>Add News Source</h2>
             <form id="addSourceForm">
@@ -94,9 +92,10 @@
             <div id="articleList" class="article-grid"></div>
             <div id="pagination" class="pagination"></div>
         </div>
-    </div>
+    </div> -->
+    <div id="root"></div>
 
-    <script>
+    <!-- <script>
         function fetchJSON(url) {
             return fetch(url)
                 .then(response => {
@@ -152,7 +151,7 @@
                 <div class="card">
                     <h3>${article.title}</h3>
                     <p>${article.date}</p>
-                    <a href="${article.origin_url}" target="_blank">Read More</a>
+                    <a href="${article.url}" target="_blank">Read More</a>
                 </div>
             `).join('');
 
@@ -191,6 +190,8 @@
         });
 
         loadSources();
-    </script>
+    </script> -->
+    <script src="/nova-data.3fe9efc5.js" type="module">
 </body>
 </html>
+</script></body></html>

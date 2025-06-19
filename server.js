@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { registerRoutes } from './server/routes';
-import { addSource, getAllSources, getArticlesBySourceId, getSourceById } from './server/db';
+import { addSource, getAllArticles, getAllSources, getArticlesBySourceId, getSourceById } from './server/db';
 import { Crawler } from './server/crawl';
 import faviconGetter from "favicon-getter"
 
@@ -31,10 +31,13 @@ const routes = {
                 }));
             }
         },
-        articles: async (req, res) => {
-            const sourceId = req.query.source
+        articles: {
+            get: async (req, res) => {
+                const sourceId = req.query.source
+                if (!sourceId) res.send(await getAllArticles())
 
-            res.send(await getArticlesBySourceId(sourceId))
+                res.send(await getArticlesBySourceId(sourceId))
+            }
         },
         crawl: async (req, res) => {
             const { sourceId } = req.query;
@@ -46,14 +49,15 @@ const routes = {
             const source = await getSourceById(sourceId);
 
             try {
-
                 const crawler = new Crawler(source);
-                
-            } catch (e){
+
+                crawler.on("complete", () => res.send({ done: true }))
+            } catch (e) {
                 console.log(new Error(e))
+                res.send({ done: false })
             }
 
-            res.send({ message: 'Crawling started' });
+            res.send({ message: 'Crawling Done!!' });
         }
     }
 }
@@ -61,5 +65,5 @@ const routes = {
 registerRoutes(app, routes);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port localhost:${PORT}`);
+    console.log(`Server is running on port http://localhost:${PORT}`);
 });

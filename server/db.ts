@@ -26,8 +26,13 @@ async function updateSourceArticles(sourceId: string, articleId: string) {
     });
 }
 
-function getAllArticles() {
-    return pb.collection(articles).getFullList();
+async function getAllArticles() {
+    const sources = (await getAllSources()).reduce((a, b) => {
+        a[b.id] = b
+        return a
+    }, {} as any)
+
+    return (await pb.collection(articles).getFullList()).map((article) => ({...article, source: sources[article.source]?.name}));
 }
 
 function getArticleById(id: string) {
@@ -114,7 +119,7 @@ async function checkValueExistsInCollection(collection: Collections, attr: strin
 async function updateCrawls(id: string, changes: Partial<z.infer<typeof crawlSchema>>) {
     const prevCrawl = await getCrawlById(id)
     try {
-        const processedCrawl = crawlSchema.parse({...prevCrawl, ...changes});
+        const processedCrawl = crawlSchema.parse({ ...prevCrawl, ...changes });
         return pb.collection(crawls).update(id, processedCrawl);
     } catch (error) {
         if (error instanceof z.ZodError) {
@@ -141,13 +146,13 @@ function addSource(source: z.infer<typeof sourceSchema>) {
 async function addArticle(article: z.infer<typeof articleSchema>) {
     try {
         const processesArticle = articleSchema.parse(article);
-
-
+        
+        
         const Article = await pb.collection(articles).create(processesArticle);
-
+        
         // put the article into source
         await updateSourceArticles(Article.source, Article.id)
-
+        
         return Article
     } catch (error) {
         if (error instanceof z.ZodError) {
@@ -177,5 +182,7 @@ export {
     checkAttrInCollection,
     checkValueExistsInCollection,
     updateSitemap,
-    updateCrawls
+    updateCrawls,
+    pb as database,
+    crawls, articles
 }

@@ -3,11 +3,11 @@ import { URL } from "url";
 import EventEmitter from "events";
 import { XMLParser } from "fast-xml-parser";
 import { sitemapSchema, sourceSchema } from "./schema";
-import z, { number } from "zod";
-import { addCrawl, addSitemap, checkValueExistsInCollection, getAllSitemaps, getSitemapById, updateSitemap } from "./db";
+import z from "zod";
+import { addCrawl, addSitemap, checkValueExistsInCollection, getAllSitemaps, getCrawlById, getSitemapById, updateCrawls, updateSitemap } from "./db";
 import axios, { AxiosInstance } from "axios"
 import axiosRetry from "axios-retry"
-import { validAndProcessUrl } from "./content";
+import { articleAlreadyExists, validAndProcessUrl } from "./content";
 
 const parser = new XMLParser();
 
@@ -37,19 +37,22 @@ type CrawlerSource = {
     articles: string[];
     logo: string;
 };
-let i = 0
+
 class Crawler extends EventEmitter {
     options: CrawlerOptionType = {
         maxDepth: 3,
         maxPages: 100,
-        userAgent: 'Mozilla/5.0 (compatible; MyCrawler/1.0; +http://example.com/bot)',
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
         timeout: 5000,
         followRedirects: true,
-        headers: {},
+        headers: {
+            "Content-Type": "application/xml",
+            "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+        },
         proxy: null,
         retryCount: 3,
         delayBetweenRequests: 1000,
-        articleHardLimit: parseInt(process.env.ARTICLE_PER_SOURCE_HARDLIMIT ?? "10")
+        articleHardLimit: parseInt(process.env.ARTICLE_PER_SOURCE_HARDLIMIT ?? "10") - 1
     };
     source: CrawlerSource;
     status: 'idle' | 'crawling' | 'completed' | 'error';
@@ -74,7 +77,8 @@ class Crawler extends EventEmitter {
             timeout: 5000,
             headers: {
                 "User-Agent": this.options.userAgent
-            }
+            },
+
         })
 
         axiosRetry(axe, {
@@ -85,7 +89,9 @@ class Crawler extends EventEmitter {
                     return true
                 }
                 return false
-            }
+            },
+            onRetry: () => console.log("Axios Retrying"),
+            onMaxRetryTimesExceeded: () => console.log("Axios Failed.")
         })
 
         this.axe = axe
@@ -172,7 +178,10 @@ class Crawler extends EventEmitter {
         const hardLimit = parseInt(process.env.ARTICLE_PER_SOURCE_HARDLIMIT || "10")
         const currentNumber = this.progress.crawls
 
-        if (currentNumber > hardLimit) return true
+        if (currentNumber > hardLimit) {
+            console.log("Limit hit.")
+            return true
+        }
     }
 
     async validateSitemap(sitemapUrl: URL) {
@@ -224,6 +233,8 @@ class Crawler extends EventEmitter {
                 });
             } else {
                 for (const sitemap of xml.sitemapindex.sitemap) {
+                    if (sitemap.loc.includes("archive")) continue;
+
                     await this.addSitemap({
                         url: sitemap.loc,
                         news: false,
@@ -238,24 +249,35 @@ class Crawler extends EventEmitter {
 
         if (xml.urlset) {
             let hasNews = false
-
             for (const urlObj of xml.urlset.url) {
                 if (this.haltCrawling()) return;
                 const url = urlObj["loc"]
                 if (!url) continue;
 
-                console.log("testing link", url)
+                if (url.includes("archive")) continue;
 
                 const crawl = await this.addCrawls(url, sitemap!.id)
+                const urlVerified = (await getCrawlById(crawl.id)).verified
+
+                if (urlVerified) continue;
+
+                const articleExists = await articleAlreadyExists(url)
+
+                if (articleExists) continue;
+
                 const article = await validAndProcessUrl(url, this.source.id, crawl.id)
 
-                if (article.error) {
-                    console.log(article)
+                await updateCrawls(crawl.id, {
+                    verified: true
+                })
+
+                if (article!.error) {
+                    console.log(article!.message)
                     continue;
                 }
-                hasNews = true
+                this.progress.crawls++;
+                hasNews = true;
             }
-
             await this.updateSitemap(sitemap!.id, { news: hasNews, verified: true, last_crawl: new Date() })
         }
     }
@@ -271,31 +293,30 @@ class Crawler extends EventEmitter {
             [key: string]: unknown;
         };
 
-
         if (robotsTxt?.sitemaps?.length) {
             if (this.haltCrawling()) return;
             await this.validateSitemap(new URL(robotsTxt.sitemaps[0]));
-            
+
             for (let sitemap of robotsTxt.sitemaps) {
                 if (this.haltCrawling()) return;
                 if (!await isSitemapUrlVerified(sitemap)) await this.validateSitemap(new URL(sitemap));
             }
-            
+
             console.log("Robots.txt step finished.")
         }
-        
+
 
         const unValidatedSitemaps = (await getAllSitemaps()).filter(sitemap => !sitemap.verified && sitemap.source === this.source.id);
         console.log("Un-Validated step finished.")
-        
+
         for (const sitemap of unValidatedSitemaps) {
             if (this.haltCrawling()) return;
             if (!await isSitemapUrlVerified(sitemap.url)) await this.validateSitemap(new URL(sitemap.url))
-            }
+        }
         console.log("Un-Validated step finished.")
-        
+
         const newsSitemaps = (await getAllSitemaps()).filter(sitemap => !sitemap.verified && sitemap.news);
-        
+
         for (const sitemap of newsSitemaps) {
             if (this.haltCrawling()) return;
             await this.validateSitemap(new URL(sitemap.url))

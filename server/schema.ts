@@ -5,7 +5,7 @@ const articleSchema = z.object({
     title: z.string().min(2),
     authors: z.string(),
     thumbnail: z.string(),
-    keywords: z.string(),
+    keywords: z.string().optional(),
     content: z.string().nullable(),
     excerpt: z.string().nullable(),
     source: z.string(),
@@ -37,6 +37,7 @@ const crawlSchema = z.object({
     url: z.string(),
     article: z.string().optional(),
     sitemap: z.string(),
+    verified: z.boolean().optional()
 })
 
 export {
