@@ -1,23 +1,46 @@
 {
-    "compilerOptions": {
-        "types": [
-            "bun-types"
-        ],
-        "lib": [
-            "esnext",
-            "DOM"
-        ],
-        "module": "esnext",
-        "target": "esnext",
-        "moduleResolution": "bundler",
-        "noEmit": true,
-        "allowImportingTsExtensions": true,
-        "moduleDetection": "force",
-        "jsx": "react-jsx",
-        "allowJs": true,
-        "esModuleInterop": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true
-    }
+  "compilerOptions": {
+    "types": [
+      "bun-types"
+    ],
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./components"
+      ]
+    },
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "server/crawl.ts"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

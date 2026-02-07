@@ -1,11 +1,15 @@
 import { z } from "zod"
 import { articleSchema, crawlSchema } from "../server/schema";
-import { articles, getArticleById } from "../server/db";
+import { articles, getArticleById, updateArticle } from "../server/db";
 import { database } from "../server/db";
+import { validateArticle } from "./validator";
+import { processArticle } from "./process";
+
 
 type ArticleProps = {
     id?: string
-    next?: boolean
+    unprocessed?: boolean
+    unvalidated?: boolean
 }
 
 class Article {
@@ -14,18 +18,21 @@ class Article {
     authors!: string[];
     source!: string;
     thumbnail!: string;
-    keywords!: string[];
-    content!: string[];
+    keywords!: string;
+    content!: string;
     excrept!: string;
     url!: string;
     date!: Date;
     crawl!: z.infer<typeof crawlSchema>;
     processed!: boolean
     fetching: boolean = false;
+    valid: boolean | undefined;
+    validated: boolean = false;
 
-    constructor({ id, next }: Partial<ArticleProps>) {
+    constructor({ id, unprocessed, unvalidated }: Partial<ArticleProps>) {
         if (id) this.articleById(id)
-        if (next) this.nextUnprocessedArticle()
+        if (unprocessed) this.nextUnProcessedArticle()
+        if (unvalidated) this.nextUnValidatedArticle()
     }
 
     async init() {
@@ -55,10 +62,10 @@ class Article {
         this.fetching = false
     }
 
-    async nextUnprocessedArticle() {
+    async nextUnProcessedArticle() {
         this.fetching = true
         try {
-            const article = await database.collection(articles).getFirstListItem("processed = false")
+            const article = await database.collection(articles).getFirstListItem("processed = false && validated = true && valid = true")
 
             for (let [key, value] of Object.entries(article)) {
                 // @ts-expect-error
@@ -68,6 +75,45 @@ class Article {
             console.log(`Next article could be fetched.`)
         }
         this.fetching = false
+    }
+
+    async nextUnValidatedArticle() {
+        this.fetching = true
+        try {
+            const article = await database.collection(articles)
+            .getFirstListItem("validated = false")
+
+            for (let [key, value] of Object.entries(article)) {
+                // @ts-expect-error
+                this[key] = value
+            }
+        } catch {
+            console.log(`Next article could be fetched.`)
+        }
+        this.fetching = false
+    }
+
+    async validate() {
+        // if (this.validated) return this.valid
+        const trimmedContent = `${this.content.slice(0, 1200)}...`
+        const { valid, message } = await validateArticle(this.title, trimmedContent, false)
+        // this.valid = valid
+
+        
+        await updateArticle(this.id, { valid: this.valid, validated: true })
+        
+        return { valid, message }
+    }
+    
+    async process() {
+        if (this.valid === undefined) await this.validate()
+            if (!this.valid) return { error: true, message: "The Article is not valid thus could not be processed." }
+        // if (this.processed) return get
+        const processedArticle = await processArticle(this.title, this.content, this.keywords)
+
+
+
+        console.log(processedArticle)
     }
 }
 

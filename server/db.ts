@@ -1,8 +1,10 @@
-import PocketBase from 'pocketbase';
+import PocketBase, { RecordService } from 'pocketbase';
 import { articleSchema, sourceSchema, crawlSchema, sitemapSchema } from './schema';
 import z from 'zod';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
+
+pb.autoCancellation(false)
 
 const sources = "sources"
 const articles = "articles"
@@ -32,7 +34,7 @@ async function getAllArticles() {
         return a
     }, {} as any)
 
-    return (await pb.collection(articles).getFullList()).map((article) => ({...article, source: sources[article.source]?.name}));
+    return (await pb.collection(articles).getFullList()).map((article) => ({ ...article, source: sources[article.source]?.name }));
 }
 
 function getArticleById(id: string) {
@@ -72,6 +74,18 @@ async function addCrawl(crawl: z.infer<typeof crawlSchema>) {
     }
 }
 
+async function updateArticle(id: string, updates: Partial<z.infer<typeof articleSchema>>) {
+    try {
+        return pb.collection(articles).update(id, updates)
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            console.error("Validation failed:", error.errors);
+        } else {
+            console.error("An unexpected error occurred:", error);
+        }
+    }
+}
+
 async function addSitemap(sitemap: z.infer<typeof sitemapSchema>) {
     try {
         const processedSitemap = sitemapSchema.parse(sitemap);
@@ -85,8 +99,9 @@ async function addSitemap(sitemap: z.infer<typeof sitemapSchema>) {
     }
 }
 
-async function updateSitemap(sitemapId: string, sitemap: z.infer<typeof sitemapSchema>) {
-    const processedSitemap = sitemapSchema.parse(sitemap);
+async function updateSitemap(sitemapId: string, sitemap: Partial<z.infer<typeof sitemapSchema>>) {
+    const oldSitemap = await pb.collection(sitemaps).getOne(sitemapId)
+    const processedSitemap = sitemapSchema.parse({ ...oldSitemap, ...sitemap, last_crawl: new Date(sitemap?.last_crawl ?? oldSitemap.last_crawl) });
     try {
         return pb.collection(sitemaps).update(sitemapId, processedSitemap);
     } catch (error) {
@@ -146,13 +161,13 @@ function addSource(source: z.infer<typeof sourceSchema>) {
 async function addArticle(article: z.infer<typeof articleSchema>) {
     try {
         const processesArticle = articleSchema.parse(article);
-        
-        
+
+
         const Article = await pb.collection(articles).create(processesArticle);
-        
+
         // put the article into source
         await updateSourceArticles(Article.source, Article.id)
-        
+
         return Article
     } catch (error) {
         if (error instanceof z.ZodError) {
@@ -162,7 +177,6 @@ async function addArticle(article: z.infer<typeof articleSchema>) {
         }
     }
 }
-
 
 export {
     getAllSources,
@@ -184,5 +198,6 @@ export {
     updateSitemap,
     updateCrawls,
     pb as database,
-    crawls, articles
+    crawls, articles,
+    updateArticle
 }

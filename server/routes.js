@@ -1,40 +1,48 @@
 export function registerRoutes(app, routes) {
+    const METHODS = ['get', 'post', 'put', 'delete', 'patch', 'all'];
+
     function registerNestedRoutes(basePath, routeObj) {
         for (const [key, value] of Object.entries(routeObj)) {
+            const currentPath = `${basePath}/${key}`.replace(/\/+/g, '/');
 
+            // If it's a function or array, treat as GET by default
             if (typeof value === 'function' || Array.isArray(value)) {
-                // Handle direct function or array of middleware/handlers
                 const handlers = Array.isArray(value) ? value : [value];
-                app.get(`${basePath}/${key}`, ...handlers);
-            } else if (typeof value === 'object' && value !== null) {
-                const methods = ['get', 'post', 'put', 'delete', 'patch', 'all'];
-                const hasMethod = methods.some(method => typeof value[method] === 'function' || Array.isArray(value[method]));
+                app.get(currentPath, ...wrapHandlers(currentPath, 'get', handlers));
+                continue;
+            }
 
-                if (hasMethod) {
-                    for (const method of methods) {
-                        if (typeof value[method] === 'function' || Array.isArray(value[method])) {
-                            const handlers = Array.isArray(value[method]) ? value[method] : [value[method]];
-                            app[method](`${basePath}/${key}`, ...handlers.map(fn => {
-                                // Wrap only the last handler for error catching
-                                if (fn === handlers[handlers.length - 1]) {
-                                    return (req, res, next) => {
-                                        try {
-                                            fn(req, res, next);
-                                        } catch (error) {
-                                            console.error(`Error handling route ${basePath}/${key} [${method.toUpperCase()}]:`, error);
-                                            res.status(500).send({ error: 'Internal Server Error' });
-                                        }
-                                    };
-                                }
-                                return fn;
-                            }));
-                        }
+            if (typeof value === 'object' && value !== null) {
+                // First register any valid HTTP methods directly on this object
+                for (const method of METHODS) {
+                    if (value[method]) {
+                        const handlers = Array.isArray(value[method]) ? value[method] : [value[method]];
+                        app[method](currentPath, ...wrapHandlers(currentPath, method, handlers));
                     }
-                } else {
-                    registerNestedRoutes(`${basePath}/${key}`, value);
+                }
+
+                // Then check if any other keys (that are not HTTP methods) exist and recurse into them
+                for (const [subKey, subValue] of Object.entries(value)) {
+                    if (!METHODS.includes(subKey)) {
+                        registerNestedRoutes(currentPath, { [subKey]: subValue });
+                    }
                 }
             }
         }
+    }
+
+    function wrapHandlers(path, method, handlers) {
+        return handlers.map((fn, idx) => {
+            const isLast = idx === handlers.length - 1;
+            return async (req, res, next) => {
+                try {
+                    await fn(req, res, next);
+                } catch (error) {
+                    console.error(`Error in ${method.toUpperCase()} ${path}:`, error);
+                    res.status(500).json({ error: 'Internal Server Error' });
+                }
+            };
+        });
     }
 
     registerNestedRoutes('', routes);

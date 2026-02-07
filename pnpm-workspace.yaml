@@ -1,0 +1,16 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@scarf/scarf'
+  - '@sentry-internal/node-native-stacktrace'
+  - '@swc/core'
+  - better-sqlite3
+  - classic-level
+  - core-js
+  - cpu-features
+  - esbuild
+  - lmdb
+  - msgpackr-extract
+  - oracledb
+  - protobufjs
+  - sqlite3
+  - ssh2

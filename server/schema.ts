@@ -12,6 +12,9 @@ const articleSchema = z.object({
     crawl: z.string(),
     url: z.string().url(),
     date: z.date().nullable(),
+    valid: z.boolean().optional(),
+    validated: z.boolean().optional(),
+    processed: z.boolean().optional()
 });
 
 const sourceSchema = z.object({
